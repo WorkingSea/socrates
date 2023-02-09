@@ -2,6 +2,9 @@
 import random
 
 replacement = {
+    "tell you": "tell me",
+    "show you": "show me",
+    "believe you": "believe me"
     "me": "you",
     "you": "i",
     "i am": "you are",
@@ -19,6 +22,8 @@ replacement = {
     "i've": "you have",
     "you'll": "i'll",
     "i'll": "you'll",
+    "because": "",
+    "'cause": "",
 }
 
 
@@ -47,13 +52,12 @@ def Answer(message):
         if sentence in message:
             print("Socrates: goodbye")
             exit()
-    message = message.replace("because", "").replace("'cause", "")
     words = message.split()
     replaced_words = [
         word if word not in replacement else replacement[word] for word in words
     ]
     random_number = random.randint(0, (len(answers) - 1))
-    if random_number < 2:  # 2 is the number of answers we have that don't utilize the user input
+    if random_number < 2:  # 2 is the numbers we have that don't use the user input
         return answers[random_number]
     else:
         reply = []
