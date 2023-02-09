@@ -53,7 +53,7 @@ def Answer(message):
         word if word not in replacement else replacement[word] for word in words
     ]
     random_number = random.randint(0, (len(answers) - 1))
-    if random_number < 2:  # 2 is the numbers we have that don't use the user input
+    if random_number < 2:  # 2 is the number of answers we have that don't utilize the user input
         return answers[random_number]
     else:
         reply = []
