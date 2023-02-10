@@ -2,11 +2,9 @@
 import random
 
 replacement = {
-    "tell you": "tell me",
-    "show you": "show me",
-    "believe you": "believe me"
     "me": "you",
-    "you": "i",
+    "you": "me, socrates,",
+    "ya": "me, socrates,", 
     "i am": "you are",
     "i": "you",
     "my": "your",
@@ -35,7 +33,7 @@ answers = [
     "how do you know that",
     "why is it so that",
     "what makes it so that",
-    "why you think that",
+    "why do you think that",
 ]
 
 exit_strings = [
@@ -48,8 +46,8 @@ exit_strings = [
 
 
 def Answer(message):
-    for sentence in exit_strings:
-        if sentence in message:
+    for keyword in exit_strings:
+        if keyword in message:
             print("Socrates: goodbye")
             exit()
     words = message.split()
@@ -63,7 +61,7 @@ def Answer(message):
         reply = []
         reply.append(answers[random_number])
         reply.extend(replaced_words)
-        reply = " ".join(reply)
+        reply = " ".join(reply).replace("  ", " ")
         return reply
 
 
